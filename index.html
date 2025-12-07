@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给你的特别礼物 🎁</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Rounded MT Bold', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .gift-box {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header {
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #e91e63;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            color: #9c27b0;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        
+        .message {
+            background: #f9f0ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid #e91e63;
+            text-align: left;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+        
+        .interactive {
+            margin: 30px 0;
+        }
+        
+        button {
+            background: linear-gradient(45deg, #e91e63, #9c27b0);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(233,30,99,0.3);
+        }
+        
+        .hidden-message {
+            display: none;
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            animation: fadeIn 1s;
+        }
+        
+        .decoration {
+            font-size: 2em;
+            margin: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: #777;
+            font-size: 0.9em;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 600px) {
+            h1 { font-size: 2em; }
+            .gift-box { padding: 20px; }
+            .message { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="gift-box">
+        <div class="header">
+            <h1>🎁 给你的特别礼物 🎁</h1>
+            <div class="subtitle">用心制作的数字礼物，只为特别的你</div>
+        </div>
+        
+        <div class="decoration">✨ 💖 ✨</div>
+        
+        <div class="message">
+            <p>亲爱的朋友：</p>
+            <p>有些礼物是看得见的，有些礼物是感受得到的。这个小小网页代表着我的一份心意——感谢你的存在，让这个世界变得更加美好。</p>
+            <p>愿你的每一天都充满阳光，愿你的每个梦想都能绽放，愿快乐常伴你左右！</p>
+            <p style="text-align: right; margin-top: 15px;">—— 关心你的人 💝</p>
+        </div>
+        
+        <div class="interactive">
+            <button onclick="showMessage()">点击接收祝福</button>
+            <button onclick="changeBackground()">换个心情</button>
+            
+            <div id="secretMessage" class="hidden-message">
+                <h3>🎉 惊喜！</h3>
+                <p>你发现了隐藏的祝福！</p>
+                <p>愿你：<br>
+                前程似锦，万事顺遂<br>
+                笑口常开，好运常来<br>
+                心中所念，皆能如愿！</p>
+                <div style="font-size: 2em; margin-top: 10px;">🌈 ✨ 🌟</div>
+            </div>
+        </div>
+        
+        <div class="decoration">🎈 🎂 🎈</div>
+        
+        <div class="footer">
+            <p>这份礼物由HTML/CSS/JS制成 | 刷新页面会有不同效果哦</p>
+            <p>© 2023 特别为你制作</p>
+        </div>
+    </div>
+
+    <script>
+        // 显示隐藏信息
+        function showMessage() {
+            const message = document.getElementById('secretMessage');
+            message.style.display = 'block';
+            
+            // 添加一些特效
+            document.querySelector('.gift-box').style.transform = 'scale(1.02)';
+            setTimeout(() => {
+                document.querySelector('.gift-box').style.transform = 'scale(1)';
+            }, 300);
+        }
+        
+        // 更改背景颜色
+        function changeBackground() {
+            const colors = [
+                'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
+                'linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)',
+                'linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)',
+                'linear-gradient(135deg, #fdcbf1 0%, #e6dee9 100%)'
+            ];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.background = randomColor;
+        }
+        
+        // 页面加载时的动画效果
+        window.onload = function() {
+            document.querySelector('.gift-box').style.opacity = '0';
+            document.querySelector('.gift-box').style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                document.querySelector('.gift-box').style.transition = 'opacity 1s, transform 1s';
+                document.querySelector('.gift-box').style.opacity = '1';
+                document.querySelector('.gift-box').style.transform = 'translateY(0)';
+            }, 300);
+        }
+        
+        // 添加随机装饰
+        const decorations = ['🌸', '🎀', '🎨', '🎯', '🧸', '🎪', '🎮', '🎵'];
+        const decorElements = document.querySelectorAll('.decoration');
+        decorElements.forEach(el => {
+            el.innerHTML = decorations[Math.floor(Math.random() * decorations.length)] + 
+                          ' 💖 ' + 
+                          decorations[Math.floor(Math.random() * decorations.length)];
+        });
+    </script>
+</body>
+</html>
